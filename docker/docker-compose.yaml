@@ -1,0 +1,20 @@
+version: '3.1'
+
+volumes:
+  pg_crud_jpa:
+
+services:
+  pg_db:
+    image: postgres:15
+    restart: always
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: crud_db
+    volumes:
+      - pg_crud_jpa:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    ports:
+      - "5435:5432"
+
