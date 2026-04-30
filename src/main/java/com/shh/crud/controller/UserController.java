@@ -3,6 +3,7 @@ package com.shh.crud.controller;
 import com.shh.crud.dto.UserRequestDto;
 import com.shh.crud.dto.UserResponseDto;
 import com.shh.crud.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,16 +12,15 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserService userService;
-
-    public UserController(UserService userService) {this.userService = userService;}
+    @Autowired
+    private UserService userService;
 
     @PostMapping
     public UserResponseDto create(@RequestBody UserRequestDto userRequestDto) {
             return userService.create(userRequestDto);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public UserResponseDto get(@PathVariable Long id) {
         return userService.get(id);
     }
