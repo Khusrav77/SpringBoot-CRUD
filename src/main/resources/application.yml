@@ -1,0 +1,14 @@
+spring:
+  docker:
+    compose:
+      enabled: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5435/crud_db
+    username: user
+    password: password
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
