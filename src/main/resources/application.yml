@@ -1,7 +1,6 @@
 spring:
-  docker:
-    compose:
-      enabled: false
+  application:
+    name: CRUD
 
   datasource:
     url: jdbc:postgresql://localhost:5435/crud_db

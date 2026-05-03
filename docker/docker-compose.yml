@@ -14,7 +14,6 @@ services:
       POSTGRES_DB: crud_db
     volumes:
       - pg_crud_jpa:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
     ports:
       - "5435:5432"
 
